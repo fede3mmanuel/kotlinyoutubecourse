@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,9 +17,15 @@ class MainActivity : AppCompatActivity() {
 
             submitButton.setOnClickListener {
                 val enteredName = inputField.text.toString()
-                val message = "Welcome ${enteredName}"
-                greetingTextView.text = message
-                inputField.text.clear()
+
+                if (enteredName == ""){
+                    greetingTextView.text = ""
+                    Toast.makeText(this@MainActivity, "Please, enter your name!", Toast.LENGTH_SHORT ).show()
+                }else {
+                    val message = "Welcome ${enteredName}"
+                    greetingTextView.text = message
+                    inputField.text.clear()
+                }
             }
     }
 }
