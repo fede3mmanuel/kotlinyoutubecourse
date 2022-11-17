@@ -11,13 +11,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
             val greetingTextView = findViewById<TextView>(R.id.tvHello)
-            val inputField = findViewById<EditText>(R.id.tvName)
+            val inputField = findViewById<EditText>(R.id.etName)
             val submitButton = findViewById<Button>(R.id.btnSubmit)
 
             submitButton.setOnClickListener {
                 val enteredName = inputField.text.toString()
                 val message = "Welcome ${enteredName}"
                 greetingTextView.text = message
+                inputField.text.clear()
             }
     }
 }
