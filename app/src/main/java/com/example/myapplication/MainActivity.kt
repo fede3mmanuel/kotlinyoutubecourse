@@ -19,8 +19,10 @@ class MainActivity : AppCompatActivity() {
             val submitButton = findViewById<Button>(R.id.btnSubmit)
             val offersButton = findViewById<Button>(R.id.btnOffers)
 
+            var enteredName = ""
+
             submitButton.setOnClickListener {
-                val enteredName = inputField.text.toString()
+                enteredName = inputField.text.toString()
 
                 if (enteredName == ""){
                     offersButton.visibility = INVISIBLE
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         offersButton.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("USER", enteredName)
             startActivity(intent)
         }
     }
