@@ -32,9 +32,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, "Please, enter your name!", Toast.LENGTH_SHORT ).show()
                 }else {
                     val message = "Welcome ${enteredName}"
-                    Log.i("MyTag", message)
                     greetingTextView.text = message
-                    Log.i("MyTag", "After displaying the message on the Text View ")
                     inputField.text.clear()
                     offersButton.visibility = VISIBLE
                 }
@@ -49,5 +47,31 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        Log.i("MyTag", "MainActivity: OnStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("MyTag", "MainActivity: OnResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("MyTag", "MainActivity: OnPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("MyTag", "MainActivity: OnStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("MyTag", "MainActivity: OnDestroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("MyTag", "MainActivity: OnRestart")
     }
 }
